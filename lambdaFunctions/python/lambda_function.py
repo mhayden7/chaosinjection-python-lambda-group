@@ -1,8 +1,7 @@
 import json
 
 def lambda_handler(event, context):
-    # TODO implement
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda py!')
+        'body': json.dumps("I sure hope there isn't any chaos around here!")
     }

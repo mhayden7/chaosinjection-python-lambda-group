@@ -1,3 +1,6 @@
+FIS parameter form: {"LambdaList":["python-lambda-chaos-injection_example_python3_8_example","python-lambda-chaos-injection_example_python3_9_example"]}
+
+
 ## Chaos Injection Lambda
 These code samples demonstrates an approach in injecting chaos in Lambda functions without making any change to the Lambda function code. This blog uses the AWS Fault Injection Simulator (FIS) service to create experiments that inject disruptions for Lambda based serverless applications. The sample code in this blog introduces random disruptions to existing Lambda functions - like an increase in response times (latency) or random failures. 
 

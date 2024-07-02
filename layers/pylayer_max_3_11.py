@@ -6,21 +6,17 @@ import random
 import time
 import sys
 
-def layer_handler(event, context):
-    # TODO implement
-    # inject delay between 100-3000 ms 
-    
+def chaos_handler(event, context):
+    # inject delay between 100-3000 ms     
     inject_delay()
-
-    # find and invoke the old handler 
     
     function_name  = os.environ['AWS_LAMBDA_FUNCTION_NAME']
     #get parameters
     ssm = boto3.client('ssm')
-    old_handler = ssm.get_parameter(Name= '/ChaosInjection/' + function_name + '_handler_ssmparam')['Parameter']['Value'].split('.') 
-    #old_handler ='lambda_function.lambda_handler'.split('.')
-    filename = old_handler[0]
-    handler= old_handler[1]
+    stored_config_parameter = f"/ChaosLambdaInjections/lambda/{function_name}"
+    print(f"Using stored config parameter {stored_config_parameter}")
+    function_config = json.loads(ssm.get_parameter(Name=stored_config_parameter)['Parameter']['Value'])
+    filename, handler = function_config['Handler'].split('.')    
     
     # find and invoke the old handler 
     file = None
