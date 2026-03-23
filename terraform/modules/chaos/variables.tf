@@ -9,3 +9,8 @@ variable "python_versions_max_3_12" {
   type = list
   default = ["python3.12"]
 }
+
+variable "python_versions_max_3_13" {
+  type = list
+  default = ["python3.13"]
+}

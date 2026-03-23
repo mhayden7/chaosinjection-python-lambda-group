@@ -10,6 +10,7 @@ Compatible versions:
 - Python 3.10
 - Python 3.11
 - Python 3.12
+- Python 3.13
 
 This sample creates an FIS experiment that uses Lambda layers to inject disruptions. The Lambda layer contains the fault injection tooling. It is invoked prior to invocation of the Lambda function and injects random latencies or error. Injecting random latency simulates real world unpredictable conditions. The FIS experiment configures the Lambda function to use the fault injection layer using an AWS System Manager Document using an aws:ssm:start-automation-execution action. Once the experiment is complete, another AWS System Manager document rolls back the layer’s attachment to the Lambda function. This design allows for the chaos experiment to be used for existing serverless applications, without changing the existing Lambda function. 
 

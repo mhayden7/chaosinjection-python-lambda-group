@@ -1,4 +1,4 @@
 # AWS Configuration
-account: ************
+account: 427009531975
 region: us-east-1
 project: python-lambda-chaos-injection

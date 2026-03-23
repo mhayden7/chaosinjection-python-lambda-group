@@ -16,6 +16,15 @@ resource "aws_lambda_layer_version" "chaos_layer_python_max_3_12" {
     # source_code_hash = filebase64sha256("../chaoslayerpython.zip")
 }
 
+resource "aws_lambda_layer_version" "chaos_layer_python_max_3_13" {
+    for_each = toset(var.python_versions_max_3_13)
+
+    layer_name = "${var.config.project}_${local.module}_${replace(each.value, ".", "_")}"
+    compatible_runtimes = ["${each.value}"]
+    filename = "../chaoslayerpython.zip"
+    # source_code_hash = filebase64sha256("../chaoslayerpython.zip")
+}
+
 resource "aws_ssm_document" "inject_chaos_document" {
     name = "InjectChaosForPythonLambdaGroups"
     document_type = "Automation"

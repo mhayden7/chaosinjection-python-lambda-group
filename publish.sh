@@ -12,6 +12,7 @@ cp pylayer_max_3_11.py ./python/python3_9.py
 cp pylayer_max_3_11.py ./python/python3_10.py
 cp pylayer_max_3_11.py ./python/python3_11.py
 cp pylayer_max_3_12.py ./python/python3_12.py
+cp pylayer_max_3_13.py ./python/python3_13.py
 zip -qr "$project_dir/chaoslayerpython.zip" python
 rm -rf python
 cd $project_dir
